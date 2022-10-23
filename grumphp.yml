@@ -91,15 +91,15 @@ grumphp:
         priority: 90
     # https://devdocs.magento.com/guides/v2.4/coding-standards/code-standard-php.html
     phpcs:
-      standard: Magento2
+      standard: "dev/tests/static/framework/Magento/ruleset.xml"
       tab_width: 4
       severity: 10 # can remove this to dis allow all level of severity.
       error_severity: 10
       warning_severity: ~
       ignore_patterns:
-        - "./app/code/Amasty/"
-        - "./app/code/Bss/"
-        - "./app/code/Mageplaza/"
+        - "app/code/Amasty/"
+        - "app/code/Bss/"
+        - "app/code/Mageplaza/"
       report: full
       triggered_by: [phtml, php]
       metadata:
@@ -116,8 +116,9 @@ grumphp:
       ruleset: ['./dev/tests/static/testsuite/Magento/Test/Php/_files/phpmd/ruleset.xml']
       triggered_by: ['php']
       exclude:
-        - "./app/code/Magento/"
-        - "./app/code/*/*/Setup/"
+        - "app/code/Magento/"
+        - "app/code/*/*/Setup/"
+        - "app/code/Mageplaza/"
       metadata:
         priority: 70
     #  uncomment to skip modules using whitelist patterns
@@ -131,7 +132,10 @@ grumphp:
       level: 8
       triggered_by: ['php']
       force_patterns: []
-      ignore_patterns: []
+      ignore_patterns:
+        - "app/code/Amasty/"
+        - "app/code/Bss/"
+        - "app/code/Mageplaza/"
       memory_limit: "-1"
       metadata:
             priority: 90
